@@ -63,9 +63,21 @@
       "name": "[concat(parameters('sqlServerName'),'/',parameters('databaseName'))]",
       "tags": "[parameters('tags')]",
       "location": "[parameters('location')]",
+      "sku": {
+        "name": "GP_Gen5",
+          "tier": "GeneralPurpose",
+          "family": "Gen5",
+          "capacity": 2
+      },
       "properties": {
-        "createMode": "Default",
-        "edition": "[parameters('edition')]"
+          "collation": "SQL_Latin1_General_CP1_CI_AS",
+          "maxSizeBytes": 34359738368,
+          "catalogCollation": "SQL_Latin1_General_CP1_CI_AS",
+          "zoneRedundant": false,
+          "licenseType": "LicenseIncluded",
+          "readScale": "Disabled",
+          "readReplicaCount": 0,
+          "storageAccountType": "GRS"
       },
       "resources": [
         {
